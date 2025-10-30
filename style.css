@@ -1,0 +1,326 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    /* padding: 30px; */
+  }
+  
+  .container {
+    width: 360px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 5px;
+  }
+  
+  /* Heading */
+  h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff6699;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  
+  h2::before,
+  h2::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color:#eee;
+    margin: 0 14px 0 0;
+  }
+  
+  h2::after{
+    margin: 0 0 0 14px ;
+  }
+  /* Offer Boxes */
+  .offer-box {
+    border: 1px solid #ccc;
+    /* border-radius: 6px; */
+    padding: 20px 12px 12px 12px;
+    margin-bottom: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .offer-box.active {
+    border: 2px solid #ff6699;
+    background: #fffafa;
+    transform: scale(1.02);
+  }
+  
+  /* Header Layout */
+  .offer-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .offer-radio {
+    accent-color: #ff6699;
+    margin-top: 4px;
+    /* border: 2px solid #ff6699; */
+  }
+
+
+  
+  .offer-info {
+    flex: 1;
+  }
+  
+  /* Title Row */
+  .offer-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+  
+  .offer-title-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .discount-tag {
+    background: #ff6699;
+    color: #fff;
+    padding: 2px 6px;
+    /* border-radius: 4px; */
+    font-size: 12px;
+  }
+  
+  .offer-title-right {
+    font-weight: 600;
+  }
+  
+  /* Sub line — note & old price */
+  .offer-subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+  
+  .offer-note {
+    font-size: 13px;
+    color: #777;
+  }
+  
+  .old {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 12px;
+    padding-right: 22px;
+    height: 8px;
+  }
+  
+
+  /* Right-align for old price in 2 and 3 unit boxes */
+.offer-subtitle.right-align {
+    justify-content: flex-end;
+  }
+  
+  .offer-subtitle.right-align .old {
+    text-align: right;
+  }
+  /* 🎀 MOST POPULAR Badge */
+  .badge-corner {
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    background: #ff6699;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 2px;
+    letter-spacing: 0.3px;
+    z-index: 3;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Expanded section */
+  .offer-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: 10px;
+    padding-left: 28px;
+  }
+  
+  .offer-box.active .offer-expanded {
+    max-height: 250px;
+  }
+  
+  .offer-expanded table {
+    width: 65%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+  }
+  
+  .offer-expanded th {
+    font-size: 12px;
+    color: #555;
+    font-weight: normal;
+    text-align: left;
+    padding-bottom: 4px;
+  }
+  
+  .offer-expanded td {
+    padding: 6px 4px;
+    vertical-align: top;
+  }
+  
+  .unit-label {
+    width: 25px;
+    color: #555;
+    font-size: 13px;
+    padding-right: 8px;
+    padding-top: 20px !important;
+  }
+  .offer-expanded select {
+    display: block;
+    margin-top: 3px;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background-color: #fff;
+    font-size: 11px;
+  }
+  
+  .offer-expanded tbody tr td:nth-child(2),
+  .offer-expanded tbody tr td:nth-child(3) {
+    width: 50%;
+  }
+  
+  
+  /* Summary */
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .free-delivery {
+    color: #ff6699;
+    font-weight: 500;
+  }
+  
+  /* .total {
+    font-weight: bold;
+  }
+   */
+  /* Add to Cart Button */
+  .add-cart {
+    width: 100%;
+    background: #ff6699;
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* space between + and text */
+  }
+  
+  .add-cart:hover {
+    background: #ff4477;
+  }
+  
+  /* Bigger + symbol */
+  .add-cart .plus {
+    font-size: 28px;
+    line-height: 1;
+  }
+  
+  /* Smaller Add to Cart text */
+  .add-cart .text {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding-left: 8px;
+  }
+  
+/* --- 3 Unit Offer Box (fixed alignment) --- */
+.offer-box[data-units="3"] .offer-header {
+    align-items: center; /* centers bullet vertically to the 3 Unit line */
+  }
+  
+  .offer-box[data-units="3"] .offer-info {
+    width: 100%;
+  }
+  
+  /* First line: 30% Off and new price */
+  .offer-box[data-units="3"] .top-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 28px; /* creates space so it visually starts after bullet */
+    margin-bottom: 4px;
+  }
+
+  .offer-box[data-units="3"] .offer-radio {
+  
+    margin-top: 24px;       
+  }
+  
+  .offer-box[data-units="3"] .top-line .discount-tag {
+    margin-left: 20px; /* moves 30% off slightly to the right */
+  }
+  
+  /* Second line: bullet (radio), 3 Unit text, and old price */
+  .offer-box[data-units="3"] .bottom-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .offer-box[data-units="3"] .unit-label {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 4px;
+    padding-top: 0 !important;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    height: 18px;
+    padding-right: 0px;
+    width: 45px;
+  }
+
+.offer-box[data-units="3"] .new-price {
+  font-weight: 600;
+}
+  .powered-by {
+    text-align: right;
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+    font-style: italic;
+    width: 100%;
+    display: block;
+    position: relative;
+    right: 0;
+  }
+  
